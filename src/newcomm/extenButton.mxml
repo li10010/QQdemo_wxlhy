@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+  Created by wxlhy on 2015-03-20.
+-->
+
+
+<s:Button xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+          currentState="out"
+          chromeColor.over="0x47C6EE" mouseOver="currentState='over'"  mouseOut="currentState='out'"
+        >
+
+    <s:states>
+        <s:State name="over"/>
+        <s:State name="out"/>
+    </s:states>
+
+</s:Button>

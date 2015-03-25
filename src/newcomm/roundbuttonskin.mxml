@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  round button
+-->
+<s:SparkButtonSkin xmlns:fx="http://ns.adobe.com/mxml/2009"
+                   xmlns:s="library://ns.adobe.com/flex/spark"
+                   xmlns:fb="http://ns.adobe.com/flashbuilder/2009"
+                   minWidth="21" minHeight="21"
+                   alpha.disabled="0.5"
+                  >
+
+    <fx:Metadata>
+        <![CDATA[
+        [HostComponent("spark.components.Button")]
+
+
+        ]]>
+    </fx:Metadata>
+    <fx:Script>
+        <![CDATA[
+        import spark.components.Button;
+
+      override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
+        {
+            bg.width = bg.height = Math.max(unscaledWidth, unscaledHeight) - 2;
+
+            bgFill.color = Number("0xa9a9a9");
+           // bgBitmapFill.source="assets/girl.bmp";
+
+            super.updateDisplayList(unscaledWidth, unscaledHeight);
+        }
+
+        ]]>
+    </fx:Script>
+
+    <!-- states -->
+    <s:states>
+        <s:State name="up" />
+        <s:State name="over" />
+        <s:State name="down" />
+        <s:State name="disabled" />
+    </s:states>
+
+
+
+    <!--边框-->
+
+    <s:Ellipse id="border" left="0" right="0" top="0" bottom="0" visible="false" visible.over="true">
+        <s:stroke>
+            <s:SolidColorStroke id="borderStroke" color="0x47C6EE" />
+        </s:stroke>
+    </s:Ellipse>
+
+
+    <!--背景-->
+    <s:Ellipse id="bg" width="100%" height="100%" left="1" right="1" top="1" bottom="1" >
+        <s:fill>
+            <s:SolidColor id="bgFill" alpha="0.2" alpha.down="0.6"/>
+            <!--<s:BitmapFill  id="bgBitmapFill" source="assets/girl.bmp"/>-->
+        </s:fill>
+
+
+
+    </s:Ellipse>
+
+    <!--背景图片-->
+    <!--背景-->
+    <s:Ellipse id="bgjpg" width="100%" height="100%" left="1" right="1" top="1" bottom="1" >
+        <s:fill>
+            <s:BitmapFill  id="bgBitmapFill" source="assets/qq.jpg"/>
+        </s:fill>
+
+
+
+    </s:Ellipse>
+
+    <!--文本-->
+    <s:Label id="labelDisplay"
+             textAlign="center"
+             maxDisplayedLines="1"
+             horizontalCenter="0" verticalCenter="1" verticalAlign="middle"
+             left="5" right="5" top="2" bottom="2">
+    </s:Label>
+
+</s:SparkButtonSkin>
