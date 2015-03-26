@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
-               xmlns:ss="newcomm.*" xmlns:mx="mx.containers.*" height="800"
+               xmlns:ss="newcomm.*" xmlns:mx="library://ns.adobe.com/flex/mx" height="800"
                currentState="s1">
 
 
@@ -28,15 +28,14 @@
         </s:Transition>
     </s:transitions>
     <fx:Script><![CDATA[
-
         //private var v:VerticalLayout = new VerticalLayout();
         // private var h:HorizontalLayout = new HorizontalLayout();
+        private var buttonList:Array = [1, 2, 3, 4, 5, 6];
 
         private function button1_clickHandler(event:MouseEvent):void {
             grp3.visible = (grp3.visible == false) ? true : false;
             eTile.visible = (eTile.visible == true ? false : true);
         }
-
         ]]></fx:Script>
 
 
@@ -69,18 +68,11 @@
 
         <!--//头像组-->
         <mx:Tile id="eTile" tileWidth="100" visible="false" paddingTop="50" paddingLeft="20">
-            <s:Button id="tx01" width="60" height="60" skinClass="newcomm.roundbuttonskin"
-                      click="button1_clickHandler(event)"/>
-            <s:Button id="tx02" width="60" height="60" skinClass="newcomm.roundbuttonskin"
-                      click="button1_clickHandler(event)"/>
-            <s:Button id="tx03" width="60" height="60" skinClass="newcomm.roundbuttonskin"
-                      click="button1_clickHandler(event)"/>
-            <s:Button id="tx04" width="60" height="60" skinClass="newcomm.roundbuttonskin"
-                      click="button1_clickHandler(event)"/>
-            <s:Button id="tx05" width="60" height="60" skinClass="newcomm.roundbuttonskin"
-                      click="button1_clickHandler(event)"/>
-            <s:Button id="tx06" width="60" height="60" skinClass="newcomm.roundbuttonskin"
-                      click="button1_clickHandler(event)"/>
+            <mx:Repeater id="rp" dataProvider="{buttonList}">
+                <s:Button id="tx01" width="60" height="60" skinClass="newcomm.roundbuttonskin"
+                          label="{rp.currentItem}"
+                          click="button1_clickHandler(event)"/>
+            </mx:Repeater>
         </mx:Tile>
 
         <!--//当前头像-->
